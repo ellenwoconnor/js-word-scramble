@@ -14,8 +14,6 @@
 
         var playing = true;
 
-        console.log("At least *something* is happening!");
-
         while (playing) {
 
             // Grab a random word from the WORDS array
@@ -28,6 +26,8 @@
             // prompt the user to guess the original word when given the scrambled word
             var promtString = "The scrambled word is " + scrambledWord + ". What do you think the unscrambled word is?";
             var guess = window.prompt(promtString);
+            guess = guess.toLowerCase().trim();
+
 
             // If the user guesses wrong, tell them they were wrong and the right word.
             if (guess !== randomWord) {
