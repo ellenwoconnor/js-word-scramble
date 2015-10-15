@@ -9,6 +9,26 @@
     <script>
         "use strict";
 
+        function swapChars(str, index1, index2)
+        {
+            var chars = str.split("");
+            var temp = chars[index1];
+            chars[index1] = chars[index2];
+            chars[index2] = temp;
+
+            return chars.join("");
+        }
+
+        function scrambleWord(word) 
+        {
+            for (var i = 0; i < word.length; i++) {
+                var randomIndex = Math.floor(Math.random() * word.length);
+                word = swapChars(word, i, randomIndex);
+            } 
+
+            return word;
+
+        }
         var WORDS     = ["booger", "apple", "hackbright", "mango"];
         var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
 
@@ -21,11 +41,12 @@
             var randomWord = WORDS[randomIndex];
 
             // Grab the corresponding scrambled word from the SCRAMBLED array
-            var scrambledWord = SCRAMBLED[randomIndex];
+            // var scrambledWord = SCRAMBLED[randomIndex];
+            var scrambledWord = scrambleWord(randomWord);
 
             // prompt the user to guess the original word when given the scrambled word
-            var promtString = "The scrambled word is " + scrambledWord + ". What do you think the unscrambled word is?";
-            var guess = window.prompt(promtString);
+            var promptString = "The scrambled word is " + scrambledWord + ". What do you think the unscrambled word is?";
+            var guess = window.prompt(promptString);
             guess = guess.toLowerCase().trim();
 
 
