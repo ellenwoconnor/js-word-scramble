@@ -49,18 +49,25 @@
             var guess = window.prompt(promptString);
             guess = guess.toLowerCase().trim();
 
+            while (guess !== randomWord)
+            {
+                guess = window.prompt("Sorry, that's not correct. Please try again. The scrambled word is " + scrambledWord + ".");
+                guess = guess.toLowerCase().trim();
+            }
+
+            window.alert("Nice work!");
 
             // If the user guesses wrong, tell them they were wrong and the right word.
-            if (guess !== randomWord) {
-                var wrongGuess = "Sorry, that is not correct. The correct word is " + randomWord + ".";
-                window.alert(wrongGuess);
-            }
+            // if (guess !== randomWord) {
+            //     var wrongGuess = "Sorry, that is not correct. The correct word is " + randomWord + ".";
+            //     window.alert(wrongGuess);
+            // }
             
-            // If the user guesses the correct word, congratulate them.
-            else
-            {
-                window.alert("Nice work!");
-            }
+            // // If the user guesses the correct word, congratulate them.
+            // else
+            // {
+            //     window.alert("Nice work!");
+            // }
 
             //Confirm that the user wants to keep playing
             playing = confirm("Press OK To keep playing or Cancel to quit");
